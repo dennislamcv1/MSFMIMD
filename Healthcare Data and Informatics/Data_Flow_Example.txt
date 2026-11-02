@@ -1,0 +1,20 @@
++-----------------------------------------------------------------------------------------------------------------+
+|                         CLINICAL MULTIMODAL DATA FLOW - COURSE FRAMEWORK                                      |
++-----------------------------------------------------------------------------------------------------------------+
+
+ [1. GENERATION]          [2. TRANSMISSION]        [3. STORAGE]          [4. RETRIEVAL]          [5. LINKAGE]
+ +------------------+     +------------------+     +----------------+    +------------------+    +------------------+
+ | Order/request    | --> | DICOM / clinical | --> | PACS / imaging | -> | Prepared study,  | -> | Report-to-study  |
+ | Imaging study    |     | data handoffs    |     | archive        |    | report, NLP, and |    | association using|
+ | Diagnostic report|     | between systems  |     | Clinical record|    | metadata extracts|    | supplied evidence|
+ +------------------+     +------------------+     +----------------+    +------------------+    +------------------+
+        |                        |                       |                       |                        |
+        | Patient/encounter context, order/accession references, report_id, and Study Instance UID are             |
+        | created or preserved as applicable. Identifiers have distinct roles and should not be treated as equal. |
+        +----------------------------------------------------------------------------------------------------------+
+
+REVIEW CHECKPOINTS
+1. Is patient/encounter context preserved across the supplied records?
+2. Can each report be traced to the intended imaging study using the available references and identifiers?
+3. Are missing identifiers or inconsistent metadata explicitly flagged rather than inferred or fabricated?
+4. Are NLP-derived entities traceable to the source report through report_id provenance?

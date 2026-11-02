@@ -1,0 +1,217 @@
+[
+  {
+    "report_id": "RAD-2026-0891",
+    "patient_id": "P-40291",
+    "encounter_id": "ENC-10029",
+    "accession_number": "ACC-88219",
+    "report_text": "Chest radiograph demonstrates a 1.5 cm nodule in the right upper lobe. No pleural effusion. Heart size normal.",
+    "extracted_entities": [
+      {
+        "category": "MeasurementValue",
+        "text": "1.5",
+        "confidenceScore": 0.99
+      },
+      {
+        "category": "MeasurementUnit",
+        "text": "cm",
+        "confidenceScore": 0.99
+      },
+      {
+        "category": "SymptomOrSign",
+        "text": "nodule",
+        "confidenceScore": 0.94,
+        "assertion": {
+          "certainty": "positive"
+        }
+      },
+      {
+        "category": "BodyStructure",
+        "text": "right upper lobe",
+        "confidenceScore": 0.98
+      },
+      {
+        "category": "SymptomOrSign",
+        "text": "pleural effusion",
+        "confidenceScore": 0.89,
+        "assertion": {
+          "certainty": "negative"
+        }
+      }
+    ]
+  },
+  {
+    "report_id": "RAD-2026-0892",
+    "patient_id": "P-40302",
+    "encounter_id": "ENC-10034",
+    "accession_number": "ACC-88220",
+    "report_text": "Follow-up CT shows stable subpleural opacity. Rule out consolidation.",
+    "extracted_entities": [
+      {
+        "category": "ExaminationName",
+        "text": "CT",
+        "confidenceScore": 0.99
+      },
+      {
+        "category": "SymptomOrSign",
+        "text": "subpleural opacity",
+        "confidenceScore": 0.91,
+        "assertion": {
+          "certainty": "positive"
+        }
+      },
+      {
+        "category": "SymptomOrSign",
+        "text": "consolidation",
+        "confidenceScore": 0.62,
+        "assertion": {
+          "certainty": "positive"
+        }
+      }
+    ]
+  },
+  {
+    "report_id": "RAD-2026-0893",
+    "patient_id": "P-40315",
+    "encounter_id": null,
+    "accession_number": "ACC-88225",
+    "report_text": "CT pulmonary angiography shows no acute pulmonary embolism. Mild dependent atelectatic change is present.",
+    "extracted_entities": [
+      {
+        "category": "ExaminationName",
+        "text": "CT pulmonary angiography",
+        "confidenceScore": 0.98
+      },
+      {
+        "category": "Diagnosis",
+        "text": "pulmonary embolism",
+        "confidenceScore": 0.96,
+        "assertion": {
+          "certainty": "negative"
+        }
+      },
+      {
+        "category": "SymptomOrSign",
+        "text": "dependent atelectatic change",
+        "confidenceScore": 0.9,
+        "assertion": {
+          "certainty": "positive"
+        }
+      }
+    ]
+  },
+  {
+    "report_id": "RAD-2026-0894",
+    "patient_id": "P-40320",
+    "encounter_id": "ENC-10041",
+    "accession_number": "ACC-88230",
+    "report_text": "Brain MRI demonstrates scattered T2/FLAIR hyperintense foci in the periventricular white matter. No acute infarct.",
+    "extracted_entities": [
+      {
+        "category": "ExaminationName",
+        "text": "Brain MRI",
+        "confidenceScore": 0.99
+      },
+      {
+        "category": "SymptomOrSign",
+        "text": "hyperintense foci",
+        "confidenceScore": 0.93,
+        "assertion": {
+          "certainty": "positive"
+        }
+      },
+      {
+        "category": "BodyStructure",
+        "text": "periventricular white matter",
+        "confidenceScore": 0.95
+      },
+      {
+        "category": "Diagnosis",
+        "text": "acute infarct",
+        "confidenceScore": 0.92,
+        "assertion": {
+          "certainty": "negative"
+        }
+      }
+    ]
+  },
+  {
+    "report_id": "RAD-2026-0895",
+    "patient_id": "P-40328",
+    "encounter_id": "ENC-10047",
+    "accession_number": "ACC-88235",
+    "report_text": "CT abdomen demonstrates a 2.3 cm low-attenuation lesion in the right hepatic lobe that may represent a cyst.",
+    "extracted_entities": [
+      {
+        "category": "ExaminationName",
+        "text": "CT abdomen",
+        "confidenceScore": 0.99
+      },
+      {
+        "category": "MeasurementValue",
+        "text": "2.3",
+        "confidenceScore": 0.98
+      },
+      {
+        "category": "MeasurementUnit",
+        "text": "cm",
+        "confidenceScore": 0.99
+      },
+      {
+        "category": "SymptomOrSign",
+        "text": "low-attenuation lesion",
+        "confidenceScore": 0.92,
+        "assertion": {
+          "certainty": "positive"
+        }
+      },
+      {
+        "category": "BodyStructure",
+        "text": "right hepatic lobe",
+        "confidenceScore": 0.97
+      },
+      {
+        "category": "Diagnosis",
+        "text": "cyst",
+        "confidenceScore": 0.84,
+        "assertion": {
+          "certainty": "neutral_possible"
+        }
+      }
+    ]
+  },
+  {
+    "report_id": "RAD-2026-0896",
+    "patient_id": "P-40333",
+    "encounter_id": "ENC-10052",
+    "accession_number": "ACC-88240",
+    "report_text": "Chest CT shows no focal airspace consolidation. A small left pleural effusion is present.",
+    "extracted_entities": [
+      {
+        "category": "ExaminationName",
+        "text": "Chest CT",
+        "confidenceScore": 0.99
+      },
+      {
+        "category": "SymptomOrSign",
+        "text": "airspace consolidation",
+        "confidenceScore": 0.94,
+        "assertion": {
+          "certainty": "negative"
+        }
+      },
+      {
+        "category": "SymptomOrSign",
+        "text": "pleural effusion",
+        "confidenceScore": 0.93,
+        "assertion": {
+          "certainty": "positive"
+        }
+      },
+      {
+        "category": "Direction",
+        "text": "left",
+        "confidenceScore": 0.96
+      }
+    ]
+  }
+]

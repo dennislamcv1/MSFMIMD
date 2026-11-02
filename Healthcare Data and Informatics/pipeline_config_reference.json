@@ -1,0 +1,39 @@
+{
+  "pipeline_name": "Radiology_Multimodal_Ingestion_v1.3_scenario",
+  "data_sources": [
+    {
+      "source_id": "PACS_DICOM",
+      "type": "Prepared DICOM study export / metadata",
+      "ingestion_method": "Scheduled batch export"
+    },
+    {
+      "source_id": "NLP_JSON",
+      "type": "Text Analytics for health-style JSON output with report provenance",
+      "ingestion_method": "Prepared JSON file ingestion"
+    },
+    {
+      "source_id": "EHR_METADATA",
+      "type": "Prepared clinical metadata CSV extract",
+      "ingestion_method": "Scheduled batch extract"
+    }
+  ],
+  "transformation_logic": [
+    "Normalize field names and formats without replacing missing source identifiers.",
+    "Apply scenario de-identification rules while preserving or consistently remapping identifiers required for linkage.",
+    "Preserve report_id on every NLP-derived record so extracted entities remain traceable to the source report.",
+    "Validate report-to-study linkage using the supplied request/order, accession, patient/encounter, and study-reference evidence. Do not equate accession number with DICOM Study Instance UID.",
+    "Retain unresolved records with an explicit review status; do not fabricate identifiers or silently drop linkage failures.",
+    "Preserve returned NLP confidenceScore values as model-output quality evidence; do not treat them as clinical severity or apply a universal clinical threshold."
+  ],
+  "governed_dataset_connection": {
+    "target": "Governed multimodal evaluation dataset (scenario reference)",
+    "lineage": "Retain source filename, report_id, order/accession references, and DICOM Study Instance UID where available",
+    "access_note": "Use the bounded, de-identified scenario package only"
+  },
+  "downstream_output_consumer": "Radiology AI model evaluation team / Microsoft Foundry scenario workflow",
+  "quality_handling": {
+    "missing_identifier": "Flag unresolved and preserve source evidence",
+    "linkage_mismatch": "Do not force join; route for reconciliation",
+    "nlp_quality_issue": "Document against source report and regenerate/reprocess only after the issue is identified"
+  }
+}

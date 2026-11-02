@@ -1,0 +1,12 @@
+EXAMPLE HIGH-SCORING SUBMISSION SNIPPET (FOR LEARNER REFERENCE)
+
+Executive Overview:
+The bounded radiology dataset is not ready for immediate model-evaluation handoff because the supplied evidence contains unresolved integration gaps. RAD-2026-0894 lacks a DICOM Study Instance UID, RAD-2026-0895 contains inconsistent report-versus-study accession numbers, RAD-2026-0893 is missing report encounter context, and RAD-2026-0896 contains inconsistent modality metadata. The NLP review also identifies a source-fidelity issue in RAD-2026-0892, where the phrase "rule out consolidation" is represented as a positive assertion.
+
+Prioritized Remediation Recommendations:
+1. Data Steward / Radiology Data Administrator (Critical): Reconcile the report-to-study accession mismatch for RAD-2026-0895 against the authoritative source records. Do not force the join until the intended study is confirmed.
+2. PACS / Imaging Data Administrator (Critical): Recover or verify the missing Study Instance UID for RAD-2026-0894 from the source imaging workflow. Keep the record explicitly unresolved until the source identifier is confirmed.
+3. Clinical Data Steward (Major): Resolve the missing report encounter context for RAD-2026-0893 using authoritative source-system evidence; do not create a placeholder encounter identifier.
+
+NLP Quality Note:
+RAD-2026-0892 should be routed to the NLP processing owner for investigation of assertion handling and regeneration of the affected output. The remediation should address the assertion error itself rather than applying a universal confidence threshold.

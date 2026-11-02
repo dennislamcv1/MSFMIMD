@@ -1,0 +1,34 @@
+CLINICAL DATA FLOW DIAGNOSTIC DRAFT (REGIONAL HOSPITAL AI REVIEW)
+
+Course framework: Generation -> Transmission -> Storage -> Retrieval -> Linkage
+
+Stage 1: Generation
+- Imaging request/order: RIS/HIS creates an order_id, accession number, patient/encounter context, and requested examination.
+- Imaging study: the modality creates the DICOM study; the Study Instance UID uniquely identifies the study within the imaging workflow.
+- Diagnostic report: the reporting system creates a report_id and final report text after image review.
+- Scenario evidence: RAD-2026-0893 has no report_encounter_id in the downstream report metadata; RAD-2026-0894 has no dicom_study_uid in the supplied integrated extract.
+
+Stage 2: Transmission
+- DICOM imaging objects are transmitted from the modality to the imaging archive/PACS.
+- Order, report, and encounter metadata are exchanged or exported to downstream clinical/data systems using the interfaces represented in this scenario.
+- Identifiers must remain distinct and traceable across handoffs; accession number and Study Instance UID are not interchangeable identifiers.
+
+Stage 3: Storage
+- DICOM studies are stored in the imaging archive/PACS.
+- Final diagnostic reports and patient/encounter metadata are stored in the clinical record systems represented in the scenario.
+- Prepared NLP output is retained as a separate derived text artifact with report_id provenance.
+
+Stage 4: Retrieval
+- The project pipeline retrieves the prepared DICOM study references/metadata, NLP JSON, and clinical metadata for creation of the bounded evaluation dataset.
+- Records with missing or inconsistent identifiers are retained and flagged for review rather than silently dropped or assigned fabricated values.
+
+Stage 5: Linkage
+- Report-to-study linkage is evaluated using the supplied request/order, accession, patient/encounter, and study-reference evidence.
+- The DICOM Study Instance UID identifies the imaging study; accession number supports imaging workflow correlation but is a distinct identifier.
+- Scenario evidence: RAD-2026-0895 has a report_accession_number that does not match the supplied study_accession_number. RAD-2026-0896 has inconsistent report versus study modality metadata.
+
+Review focus
+- Determine whether patient/encounter context is preserved.
+- Determine whether report-to-study linkage is supported by consistent evidence.
+- Record missing identifiers and inconsistent metadata as explicit gaps.
+- Do not infer or manufacture a missing identifier from date/time proximity alone.
